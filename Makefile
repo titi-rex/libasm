@@ -18,7 +18,8 @@ LINKER	=	ld
 
 #	==============================	SRC	==============================	#
 DIR_SRC	=	src/
-LST_SRC	=	test.s
+LST_SRC	=	ft_strlen.s 
+			# test.s 
 SRC		=	${addprefix ${DIR_SRC}, ${LST_SRC}}
 
 

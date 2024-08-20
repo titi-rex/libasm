@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "libasm.h": "c",
+        "string.h": "c",
+        "stdio.h": "c"
+    }
+}

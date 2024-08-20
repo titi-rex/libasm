@@ -29,7 +29,7 @@ IFLAG		=	-I ${DIR_INC}
 
 #	==============================	SRC	==============================	#
 DIR_SRC		=	src/
-LST_SRC		=	ft_strlen.s ft_strcpy.s
+LST_SRC		=	ft_strlen.s ft_strcpy.s ft_strcmp.s ft_strdup.s
 SRC			=	${addprefix ${DIR_SRC}, ${LST_SRC}}
 
 
@@ -41,7 +41,7 @@ OBJ			=	${addprefix ${DIR_OBJ}, ${LST_OBJ}}
 
 #	==============================	TEST	==============================	#
 DIR_TEST		=	test/
-LST_TEST_SRC	=	test.c
+LST_TEST_SRC	=	main.c utils.c strlen.c strcpy.c
 TEST_SRC		=	${addprefix ${DIR_TEST}, ${LST_TEST_SRC}}
 
 

@@ -1,6 +1,15 @@
-GLOBAL  ft_void
+GLOBAL  ft_strcpy
 
 SECTION .text
 
-ft_void:
-    ret
+ft_strcpy:
+        mov     rax, rdi
+
+.loop:  mov     BYTE [rax], [rsi]
+        cmp     BYTE [rsi], 0
+        je      .end
+        inc     rax
+        inc     rsi
+        jne     .loop
+
+.end:   ret

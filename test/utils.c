@@ -13,3 +13,10 @@ void    fatal(const char * str)
     printf("FATAL: %s\n", str);
     exit(1);
 }
+
+void    sigsegv_handler(int sig)
+{
+    (void)sig;
+    printf(BOLD""RED"[SIGSEV]\n"END);
+    exit(1);
+}

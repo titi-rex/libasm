@@ -5,7 +5,6 @@ void _strdup_wrapper(const char * string)
     char *  dst1 = ft_strdup(string);
     char *  dst2 = strdup(string);
 
-
     check(dst1 == dst2);
     if (dst1 != NULL && dst1 != NULL)
         check(strcmp(dst1, dst2));

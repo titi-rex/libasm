@@ -41,7 +41,7 @@ OBJ			=	${addprefix ${DIR_OBJ}, ${LST_OBJ}}
 
 #	==============================	TEST	==============================	#
 DIR_TEST		=	test/
-LST_TEST_SRC	=	main.c utils.c strlen.c strcpy.c
+LST_TEST_SRC	=	main.c utils.c strlen.c strcpy.c strcmp.c strdup.c
 TEST_SRC		=	${addprefix ${DIR_TEST}, ${LST_TEST_SRC}}
 
 

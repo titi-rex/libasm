@@ -5,7 +5,7 @@ SECTION .text
 ft_strcpy:
         mov     rax, rdi
 
-.loop:  mov     BYTE [rax], [rsi]
+.loop:  mov     [rax], rsi
         cmp     BYTE [rsi], 0
         je      .end
         inc     rax

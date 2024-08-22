@@ -5,10 +5,11 @@ SECTION .text
 ft_strcpy:
         mov     rax, rdi
 
-.loop:  mov     [rax], rsi
+.loop:  mov     dl, [rsi]
+        mov     [rdi], dl
         cmp     BYTE [rsi], 0
         je      .end
-        inc     rax
+        inc     rdi
         inc     rsi
         jne     .loop
 

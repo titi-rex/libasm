@@ -9,7 +9,7 @@ void _strcpy_wrapper(const char * string)
     if (dst1 == NULL || dst2 == NULL)
        fatal("malloc failed");
     check((dst1 == ft_strcpy(dst1, string)) == (dst2 == strcpy(dst2, string)));
-    check(strcmp(dst1, dst2));
+    check(strcmp(dst1, dst2) == 0);
     if (dst1)
         free(dst1);
     if (dst2)

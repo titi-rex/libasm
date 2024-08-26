@@ -12,7 +12,11 @@ ft_strdup:
         inc     rax
         mov     rdi, rax
         call    malloc WRT ..plt
+        test    rax, rax
+        jz      .end
         mov     rdi, rax
         pop     rsi
         call    ft_strcpy
+
+.end:
         ret

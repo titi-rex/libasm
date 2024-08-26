@@ -3,13 +3,13 @@ GLOBAL  ft_strlen
 SECTION .text
 
 ft_strlen:
-            mov     rax, rdi
-            cmp     BYTE [rax], 0
-            je      .end
+        mov     rax, rdi
+        dec     rax
 
-.loop:      inc     rax
-            cmp     BYTE [rax], 0
-            jne     .loop
+.loop:     
+        inc     rax
+        cmp     BYTE [rax], 0
+        jnz     .loop
 
-.end:       sub rax,rdi
-            ret
+        sub     rax, rdi
+        ret

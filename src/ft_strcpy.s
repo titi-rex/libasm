@@ -4,13 +4,15 @@ SECTION .text
 
 ft_strcpy:
         mov     rax, rdi
+        dec     rdi
+        dec     rsi
 
-.loop:  mov     dl, [rsi]
-        mov     [rdi], dl
-        cmp     BYTE [rsi], 0
-        je      .end
+.loop:  
         inc     rdi
         inc     rsi
-        jne     .loop
+        mov     dl, [rsi]
+        mov     [rdi], dl
+        cmp     BYTE [rsi], 0
+        jnz     .loop
 
-.end:   ret
+        ret

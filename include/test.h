@@ -6,6 +6,9 @@
 # include <assert.h>
 # include <signal.h>
 # include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <errno.h>
 # include <stdbool.h>
 # include "libasm.h"
 # include "colors.h"
@@ -19,6 +22,8 @@ void    strlen_tester(void);
 void    strcpy_tester(void);
 void    strcmp_tester(void);
 void    strdup_tester(void);
+void    write_tester(void);
+void    read_tester(void);
 
 # define I_START    0
 # define I_STRLEN   1

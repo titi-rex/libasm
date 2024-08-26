@@ -2,14 +2,12 @@ GLOBAL  ft_strcmp
 
 SECTION .text
 
-
-
 ft_strcmp:
         xor     rax, rax
         xor     rbx, rbx
  
-        dec rdi
-        dec rsi
+        dec     rdi
+        dec     rsi
 
 .loop:
         inc     rdi

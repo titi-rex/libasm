@@ -2,7 +2,9 @@
 
 void _strcmp_wrapper(const char * a, const char * b)
 {
-    check(ft_strcmp(a, b) == strcmp(a, b));
+    int exp = strcmp(a, b);
+    int got = ft_strcmp(a, b);
+    check((exp == got) || (exp < 0 && got < 0) || (exp > 0 && got > 0));
 }
 
 void    strcmp_tester(void)

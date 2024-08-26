@@ -1,20 +1,27 @@
 #include "test.h"
+#include <malloc.h>
 
 void _strdup_wrapper(const char * string)
 {
-    char *  dst1 = ft_strdup(string);
-    char *  dst2 = strdup(string);
+    char *  exp = strdup(string);
+    char *  got = ft_strdup(string);
 
-    check(dst1 == dst2);
-    if (dst1 != NULL && dst1 != NULL)
-        check(strcmp(dst1, dst2));
+    if (got != NULL && exp != NULL)
+    {
+        check((strcmp(got, exp) == 0));
+        size_t  ge = malloc_usable_size(exp);
+        size_t  go = malloc_usable_size(got);
+        // printf("ms.");
+        check(ge == go);
+        // printf("malloc size : exp %ld, got %ld,\tlen str :% ld, size chat %ld, mult :%ld\n", ge, go, strlen(string), sizeof(char), strlen(string) * sizeof(char));
+    }
     else
-        check(1 == 2);
+        printf("nulll");
 
-    if (dst1)
-        free(dst1);
-    if (dst2)
-        free(dst2);
+    if (got)
+        free(got);
+    if (exp)
+        free(exp);
 }
 
 void    strdup_tester(void)
@@ -23,5 +30,6 @@ void    strdup_tester(void)
     _strdup_wrapper("hehe");
     _strdup_wrapper("hehslkfj sljfojes;ofh sf6s84efs4efsf jse9w73 os;l9es9rf9fru3u8sl38ursl83rus9w3l8ry sl3yr7sylwsi3rysiyr 3i7yslry3iyurslie");
     _strdup_wrapper("");
+    _strdup_wrapper("asd;a poadjw kkwd\n\n");
     printf("\n");
 }

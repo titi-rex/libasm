@@ -17,6 +17,4 @@ ft_write:
         neg     rdi
         mov     [rax], rdi
         mov     rax, -1
-        retret
-
-
+        ret

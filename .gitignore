@@ -53,4 +53,5 @@ dkms.conf
 
 #
 *.dep
-test64
+*tester
+*Tester

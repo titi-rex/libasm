@@ -5,7 +5,7 @@
 Create the function ft_list_size which returns the number of elements in the
 list.
 */
-int	ft_list_size(t_list *begin_list)
+int	list_size(t_list *begin_list)
 {
 	int	size;
 
@@ -19,12 +19,25 @@ int	ft_list_size(t_list *begin_list)
 }
 
 
-void    list_size_wrapper(void)
+void    list_size_wrapper(int len)
 {
+    t_list  *lst = NULL;
 
+    for(int i = 0; i < len; i++)
+    {
+        uint64_t r = 17;
+        list_push_front(&lst, (void*)r);
+    }
+    check(ft_list_size(lst) == len);
+    listclear(&lst);
 }
 
 void    list_size_tester(void)
 {
-
+    printf("list_size: ");
+    list_size_wrapper(0);
+    list_size_wrapper(1);
+    list_size_wrapper(51);
+    list_size_wrapper(524);
+    printf("\n");
 }

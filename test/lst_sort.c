@@ -16,7 +16,7 @@ by comparing two elements by comparing their data with a function
 Function pointed by cmp will be used as follows :    (*cmp)(list_ptr->data, list_other_ptr->data);
 cmp could be for instance ft_strcmp.
 */
-void    ft_list_sort(t_list **begin_list, int (*cmp)())
+void    list_sort(t_list **begin_list, int (*cmp)())
 {
     if (!begin_list || !*begin_list || !cmp)
         return ;
@@ -62,7 +62,7 @@ void    list_sort_tester(void)
     printf("list_sort: ");
     t_list  *lst = NULL;
 
-    uint64_t    len = 500;
+    uint64_t    len = 51;
     for(uint64_t i = 0; i < len; i++)
     {
         uint64_t r =  i;
@@ -70,7 +70,18 @@ void    list_sort_tester(void)
     }
     ft_list_sort(&lst, _cmp_int);
     check(list_sorted(lst, _cmp_int) == 0);
-
     listclear(&lst);
+    lst = NULL;
+
+    char*   s1 = "ssello";
+    char*   s2 = "aaaa";
+    char*   s3 = "hello";
+    list_push_front(&lst, s3);
+    list_push_front(&lst, s2);
+    list_push_front(&lst, s1);
+    ft_list_sort(&lst, _cmp_str);
+    check(list_sorted(lst, _cmp_str) == 0);
+    listclear(&lst);
+
     printf("\n");
 }

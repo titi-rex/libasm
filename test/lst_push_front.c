@@ -1,54 +1,44 @@
 #include "test.h"
 
-/*
-Create the function ft_create_elem which creates a new element of t_list type.
-• It should assign data to the given argument and next to NULL.
-can use malloc
-*/
-t_list *create_elem(void *data)
-{
-    (void)data;
-    /*
 
-    t_list	*ft_lstnew(void *content)
+void    list_push_front_wrapper(t_list** list, void* data, t_list* exp_next)
+{
+    ft_list_push_front(list, data);
+    check(*list != NULL);
+    if (*list == NULL)
+        return ;
+    printf("ms.");
+    check(malloc_usable_size(*list) == sizeof(t_list));
+    check((*list)->data == data);
+    check((*list)->next == exp_next);
+}
+
+void    list_push_front_tester(void)
+{
+    printf("list_push_front: ");
+    t_list* list = NULL;
+
+    char*   str = "dd";
+    list_push_front_wrapper(&list, (void*)str, NULL);
+    t_list* save = list;
+
+    int     i = 48;
+    list_push_front_wrapper(&list, (void*)&i, list);
+
+    int     tab[37];
+    list_push_front_wrapper(&list, (void*)tab, list);
+
+    printf("spe:");
+    if (list != NULL && list->next != NULL && list->next->next != NULL)
     {
-        t_list	*new;
-
-        new = (t_list *)malloc(sizeof(t_list));
-        if (!new)
-            return (NULL);
-        new->content = content;
-        new->next = NULL;
-        return (new);
+        check(list->next->next == save);
+        check(list->next->next->data == (void*)str);
+        check(list->next->next->next == NULL);
     }
-*/
-    return (NULL);
-}
+    else
+        check(1 == 2);
 
 
-/*
-Create the function ft_create_elem which creates a new element of t_list type.
-• It should assign data to the given argument and next to NULL.
-• Here’s how it should be prototyped :
-t_list *ft_create_elem(void *data);
-can use ft_createelement
-*/
-void	lst_push_front(t_list **begin_list, void *data)
-{
-    (void)data;
-    (void)begin_list;
-	// if (*begin_list)
-	// 	data->next = *begin_list;
-	// *begin_list = data;
-}
-
-
-void    lst_push_front_wrapper(void)
-{
-
-}
-
-void    lst_push_front_tester(void)
-{
-
+    listclear(&list);
+    printf("\n");
 }

@@ -6,9 +6,9 @@ void _read_wrapper(char * pathname, size_t len)
     char got[len + 1];
 
     exp[len] = 0;
-    exp[0] = 0;
+    // exp[0] = 0;
     got[len] = 0;
-    got[0] = 0;
+    // got[0] = 0;
 
     int errno_exp = 0;
     int errno_got = 0;

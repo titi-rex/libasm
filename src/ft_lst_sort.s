@@ -1,6 +1,6 @@
-GLOBAL  ft_lst_sort
+GLOBAL  ft_list_sort
 
 SECTION .text
 
-ft_lst_sort:
+ft_list_sort:
         ret

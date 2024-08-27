@@ -17,12 +17,12 @@ void    ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(), voi
 
 }
 
-void    lst_remove_if_wrapper(void)
+void    list_remove_if_wrapper(void)
 {
 
 }
 
-void    lst_remove_if_tester(void)
+void    list_remove_if_tester(void)
 {
 
 }

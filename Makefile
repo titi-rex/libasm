@@ -20,7 +20,7 @@ AR			=	ar
 ARFLAG		=	rcs
 
 CC			=	gcc 
-CFLAG		=	-Wall -Wextra -Werror #-g3 -fsanitize=address 
+CFLAG		=	-Wall -Wextra -Werror -g3 -fsanitize=address,leak 
 
 
 #	==============================	INCLUDE	==============================	#
@@ -42,7 +42,7 @@ OBJ			=	${addprefix ${DIR_OBJ}, ${LST_OBJ}}
 
 
 #	==============================	BONUS	==============================	#
-LST_SRC_BONUS	=	ft_lst_push_front.s ft_lst_size.s ft_lst_sort.s ft_lst_remove_if.s 
+LST_SRC_BONUS	=	ft_atoi_base.s ft_lst_push_front.s ft_lst_size.s ft_lst_sort.s ft_lst_remove_if.s 
 SRC_BONUS		=	${addprefix ${DIR_SRC}, ${LST_SRC_BONUS}}
 
 LST_OBJ_BONUS		=	${LST_SRC_BONUS:.s=.o}
@@ -51,7 +51,7 @@ OBJ_BONUS			=	${addprefix ${DIR_OBJ}, ${LST_OBJ_BONUS}}
 
 #	==============================	TEST	==============================	#
 DIR_TEST		=	test/
-LST_TEST_SRC	=	main.c utils.c strlen.c strcpy.c strcmp.c strdup.c write.c read.c lst_push_front.c lst_size.c lst_sort.c lst_remove_if.c 
+LST_TEST_SRC	=	main.c utils.c strlen.c strcpy.c strcmp.c strdup.c write.c read.c atoi_base.c lst_push_front.c lst_size.c lst_sort.c lst_remove_if.c 
 TEST_SRC		=	${addprefix ${DIR_TEST}, ${LST_TEST_SRC}}
 
 

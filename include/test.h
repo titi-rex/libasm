@@ -10,6 +10,8 @@
 # include <fcntl.h>
 # include <errno.h>
 # include <stdbool.h>
+# include <stdint.h>
+# include <malloc.h>
 
 # include "colors.h"
 # include "libasm.h"
@@ -18,7 +20,8 @@
 void    check(bool e);
 void    fatal(const char * str);
 void    sigsegv_handler(int sig);
-
+void    listclear(t_list **list);
+void    list_push_front(t_list **begin_list, void *data);
 
 void    strlen_tester(void);
 void    strcpy_tester(void);
@@ -26,10 +29,12 @@ void    strcmp_tester(void);
 void    strdup_tester(void);
 void    write_tester(void);
 void    read_tester(void);
-// void    lst_push_front_tester(void);
-// void    lst_size_tester(void);
-// void    lst_sort_tester(void);
-// void    lst_remove_if_tester(void);
+
+void    atoi_base_tester(void);
+void    list_push_front_tester(void);
+void    list_size_tester(void);
+void    list_sort_tester(void);
+void    list_remove_if_tester(void);
 
 # define I_START    0
 # define I_STRLEN   1

@@ -1,6 +1,6 @@
-GLOBAL  ft_lst_size
+GLOBAL  ft_list_size
 
 SECTION .text
 
-ft_lst_size:
+ft_list_size:
         ret

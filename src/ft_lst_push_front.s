@@ -1,6 +1,6 @@
-GLOBAL  ft_lst_push_front
+GLOBAL  ft_list_push_front
 
 SECTION .text
 
-ft_lst_push_front:
+ft_list_push_front:
         ret

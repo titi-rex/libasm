@@ -11,6 +11,12 @@ int main(void)
     strdup_tester();
     write_tester();
     read_tester();
+
+    atoi_base_tester();
+    list_push_front_tester();
+    list_size_tester();
+    list_sort_tester();
+    list_remove_if_tester();
 }
 
 

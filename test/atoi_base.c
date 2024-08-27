@@ -52,7 +52,7 @@ int	_extract_nbr(char *str, char *base, int len)
 	return (res);
 }
 
-int	ft_atoi_base(char *str, char *base)
+int	atoi_base(char *str, char *base)
 {
 	int		len_base;
 	int		signe;
@@ -75,19 +75,29 @@ int	ft_atoi_base(char *str, char *base)
 	return (nb * signe);
 }
 
-void	check_ft_atoi_base(void)
+void    atoi_base_wrapper(char* str, char* base)
 {
-	char	str1[] = "0000";
-	char	str2[] = "+-+--2f-1234d2kldjj";	
-	char	str3[] = " +-+----nope2kldj9f";
-	char	base1[] = "10";
-	char	base2[] = "0123456789abcdef";
-	char	base3[] = "poneyvif";
+    int     exp = atoi_base(str, base);
+    int     got = ft_atoi_base(str, base);
+    check(exp == got);
+    // printf("exp: %d, got %d. ", exp, got);
+}
 
-	printf("\n\n#____!n4xt_n4xt_n4xt!____#\n");
-	printf("\n\tcheck_ft_atoi_base\n\n");
-	printf("str:\t%s\tbase:\t%s\nresult:\t%d\n", str1, base1, ft_atoi_base(str1, base1));
-	printf("str:\t%s\tbase:\t%s\nresult:\t%d\n", str2, base2, ft_atoi_base(str2, base2));
-	printf("str:\t%s\tbase:\t%s\nresult:\t%d\n", str3, base3, ft_atoi_base(str3, base3));
-
+void	atoi_base_tester(void)
+{
+    printf("atoi_base: ");
+    atoi_base_wrapper("0000", "012345679");
+    atoi_base_wrapper("010101", "01");
+    atoi_base_wrapper("10000", "01");
+    atoi_base_wrapper("684", "012345679");
+    atoi_base_wrapper("-89", "012345679");
+    atoi_base_wrapper("-5687421", "012345679");
+    atoi_base_wrapper("--968", "012345679");
+    atoi_base_wrapper("--++--+-+968", "012345679");
+    atoi_base_wrapper(" +-+----nope2kldj9f", "56sw");
+    atoi_base_wrapper("oney", "poneyvif");
+    atoi_base_wrapper("-vf", "poneyvif");
+    atoi_base_wrapper("16", "0123456789abcdef");
+    atoi_base_wrapper("-24", "0123456789abcdef");
+    printf("\n");
 }

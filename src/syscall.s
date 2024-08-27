@@ -29,7 +29,7 @@ SYS_OPEN                   equ 2    ; const char *filename              int flag
 SYS_CLOSE                  equ 3    ; unsigned int fd
 SYS_STAT                   equ 4    ; const char *filename              struct stat *statbuf
 SYS_FSTAT                  equ 5    ; unsigned int fd                   struct stat *statbuf
-SYS_LSTAT                  equ 6    ; fconst char *filename             struct stat *statbuf
+SYS_listAT                  equ 6    ; fconst char *filename             struct stat *statbuf
 SYS_POLL                   equ 7    ; struct poll_fd *ufds              unsigned int nfds                     long timeout_msecs
 SYS_LSEEK                  equ 8    ; unsigned int fd                   off_t offset                          unsigned int origin
 SYS_MMAP                   equ 9    ; unsigned long addr                unsigned long len                     unsigned long prot                   unsigned long flags            unsigned long fd                     unsigned long off

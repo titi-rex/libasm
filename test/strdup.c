@@ -1,5 +1,4 @@
 #include "test.h"
-#include <malloc.h>
 
 void _strdup_wrapper(const char * string)
 {

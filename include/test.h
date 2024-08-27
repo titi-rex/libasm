@@ -10,8 +10,10 @@
 # include <fcntl.h>
 # include <errno.h>
 # include <stdbool.h>
-# include "libasm.h"
+
 # include "colors.h"
+# include "libasm.h"
+# include "libasm_bonus.h"
 
 void    check(bool e);
 void    fatal(const char * str);
@@ -24,6 +26,10 @@ void    strcmp_tester(void);
 void    strdup_tester(void);
 void    write_tester(void);
 void    read_tester(void);
+// void    lst_push_front_tester(void);
+// void    lst_size_tester(void);
+// void    lst_sort_tester(void);
+// void    lst_remove_if_tester(void);
 
 # define I_START    0
 # define I_STRLEN   1

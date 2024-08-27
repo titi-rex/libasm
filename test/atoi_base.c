@@ -74,3 +74,20 @@ int	ft_atoi_base(char *str, char *base)
 	nb = _extract_nbr(str, base, len_base);
 	return (nb * signe);
 }
+
+void	check_ft_atoi_base(void)
+{
+	char	str1[] = "0000";
+	char	str2[] = "+-+--2f-1234d2kldjj";	
+	char	str3[] = " +-+----nope2kldj9f";
+	char	base1[] = "10";
+	char	base2[] = "0123456789abcdef";
+	char	base3[] = "poneyvif";
+
+	printf("\n\n#____!n4xt_n4xt_n4xt!____#\n");
+	printf("\n\tcheck_ft_atoi_base\n\n");
+	printf("str:\t%s\tbase:\t%s\nresult:\t%d\n", str1, base1, ft_atoi_base(str1, base1));
+	printf("str:\t%s\tbase:\t%s\nresult:\t%d\n", str2, base2, ft_atoi_base(str2, base2));
+	printf("str:\t%s\tbase:\t%s\nresult:\t%d\n", str3, base3, ft_atoi_base(str3, base3));
+
+}

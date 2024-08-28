@@ -1,6 +1,6 @@
-GLOBAL  ft_strlen
-
 SECTION .text
+
+GLOBAL  ft_strlen
 
 ft_strlen:
         mov     rax, rdi

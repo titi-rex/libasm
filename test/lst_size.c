@@ -28,7 +28,9 @@ void    list_size_wrapper(int len)
         uint64_t r = 17;
         list_push_front(&lst, (void*)r);
     }
-    check(ft_list_size(lst) == len);
+    int res = ft_list_size(lst);
+    check(res == len);
+    // printf("exp: %d, got: %d\n", len, res);
     listclear(&lst);
 }
 

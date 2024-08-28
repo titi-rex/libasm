@@ -13,14 +13,14 @@ TEST_EXE	=	asmtest.out
 
 #	==============================	CMP	==============================	#
 ASM			=	nasm
-ASMFLAG		=	-f elf64 -g
+ASMFLAG		=	-w+x -f elf64 -g -F dwarf
 DEPFLAG		=	-MD $@.dep
 
 AR			=	ar
 ARFLAG		=	rcs
 
 CC			=	gcc 
-CFLAG		=	-Wall -Wextra -Werror -g3 -fsanitize=address,leak 
+CFLAG		=	-Wall -Wextra -Werror -g3 #-fsanitize=address,leak 
 
 
 #	==============================	INCLUDE	==============================	#
@@ -45,8 +45,8 @@ OBJ			=	${addprefix ${DIR_OBJ}, ${LST_OBJ}}
 LST_SRC_BONUS	=	ft_atoi_base.s ft_lst_push_front.s ft_lst_size.s ft_lst_sort.s ft_lst_remove_if.s 
 SRC_BONUS		=	${addprefix ${DIR_SRC}, ${LST_SRC_BONUS}}
 
-LST_OBJ_BONUS		=	${LST_SRC_BONUS:.s=.o}
-OBJ_BONUS			=	${addprefix ${DIR_OBJ}, ${LST_OBJ_BONUS}}
+LST_OBJ_BONUS	=	${LST_SRC_BONUS:.s=.o}
+OBJ_BONUS		=	${addprefix ${DIR_OBJ}, ${LST_OBJ_BONUS}}
 
 
 #	==============================	TEST	==============================	#
@@ -81,10 +81,10 @@ re: fclean all
 
 
 #	==============================	COMPILATION	==============================	#
-${NAME}: ${DIR_OBJ} ${OBJ}
-	${AR} ${ARFLAG} $@ ${OBJ}
+${NAME}: ${DIR_OBJ} ${OBJ} ${OBJ_BONUS}
+	${AR} ${ARFLAG} $@ ${OBJ} ${OBJ_BONUS}
 
-${NAME_BONUS}: ${DIR_OBJ} ${OBJ} ${OBJ_BONUS}
+${NAME_BONUS}: ${NAME} ${DIR_OBJ} ${OBJ} ${OBJ_BONUS}
 	${AR} ${ARFLAG} ${NAME_BONUS} ${OBJ} ${OBJ_BONUS}
 
 ${DIR_OBJ}%.o: ${DIR_SRC}%.s

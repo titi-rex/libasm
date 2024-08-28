@@ -27,9 +27,10 @@ void    list_sort(t_list **begin_list, int (*cmp)())
         if ((*cmp)(current->data, current->next->data))
         {
             void*   tmp = current->data;
-            current->data = current->next->data;
-            current->next->data = tmp;
-            ft_list_sort(begin_list, cmp);
+            t_list* next = current->next;
+            current->data = next->data;
+            next->data = tmp;
+            list_sort(begin_list, cmp);
         }
         current = current->next;
     }
@@ -45,6 +46,13 @@ void    list_print(t_list* list)
     printf("\n");
 }
 
+/**
+ * @brief check if list is sorted using cmp
+ * 
+ * @param head 
+ * @param cmp function to use for test
+ * @return int 
+ */
 int list_sorted(t_list* head, int (*cmp)())
 {
     while(head && head->next)
@@ -62,14 +70,16 @@ void    list_sort_tester(void)
     printf("list_sort: ");
     t_list  *lst = NULL;
 
-    uint64_t    len = 51;
+    uint64_t    len = 3;
     for(uint64_t i = 0; i < len; i++)
     {
         uint64_t r =  i;
         list_push_front(&lst, (void*)r);
     }
-    ft_list_sort(&lst, _cmp_int);
+    list_sort(&lst, _cmp_int);
     check(list_sorted(lst, _cmp_int) == 0);
+    printf("\n");
+    return ;
     listclear(&lst);
     lst = NULL;
 

@@ -61,3 +61,15 @@ void	listclear(t_list **list)
     }
     list = NULL;
 }
+
+
+void    list_print(t_list* list)
+{
+    while (list)
+    {
+        printf("%lu ", (uint64_t)list->data);
+        list = list->next;
+    }
+    printf("\n");
+}
+

@@ -36,16 +36,6 @@ void    list_sort(t_list **begin_list, int (*cmp)())
     }
 }
 
-void    list_print(t_list* list)
-{
-    while (list)
-    {
-        printf("%lu ", (uint64_t)list->data);
-        list = list->next;
-    }
-    printf("\n");
-}
-
 /**
  * @brief check if list is sorted using cmp
  * 
@@ -67,31 +57,57 @@ int list_sorted(t_list* head, int (*cmp)())
 
 void    list_sort_tester(void)
 {
-    printf("list_sort: ");
-    t_list  *lst = NULL;
+    t_list      *lst;
+    uint64_t    len;
 
-    uint64_t    len = 3;
+    printf("list_sort: ");
+    (void)len;
+
+    // test empty list
+    lst = NULL;
+    ft_list_sort(&lst, _cmp_int);
+    check(list_sorted(lst, _cmp_int) == 0);
+
+    // test odd list
+    lst = NULL;
+    len = 37;
     for(uint64_t i = 0; i < len; i++)
     {
         uint64_t r =  i;
         list_push_front(&lst, (void*)r);
     }
-    list_sort(&lst, _cmp_int);
+    ft_list_sort(&lst, _cmp_int);
     check(list_sorted(lst, _cmp_int) == 0);
-    printf("\n");
-    return ;
     listclear(&lst);
-    lst = NULL;
 
+    // test even list
+    lst = NULL;
+    len = 52;
+    for(uint64_t i = 0; i < len; i++)
+    {
+        uint64_t r =  i;
+        list_push_front(&lst, (void*)r);
+    }
+    ft_list_sort(&lst, _cmp_int);
+    check(list_sorted(lst, _cmp_int) == 0);
+    listclear(&lst);
+
+
+    // test string data list
+    lst = NULL;
     char*   s1 = "ssello";
     char*   s2 = "aaaa";
     char*   s3 = "hello";
+    char*   s4 = strdup("hello");
     list_push_front(&lst, s3);
     list_push_front(&lst, s2);
+    list_push_front(&lst, s4);
     list_push_front(&lst, s1);
     ft_list_sort(&lst, _cmp_str);
     check(list_sorted(lst, _cmp_str) == 0);
     listclear(&lst);
+    free(s4);
+
 
     printf("\n");
 }

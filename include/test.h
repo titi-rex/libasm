@@ -22,6 +22,8 @@ void    fatal(const char * str);
 void    sigsegv_handler(int sig);
 void    listclear(t_list **list);
 void    list_push_front(t_list **begin_list, void *data);
+void    list_print(t_list* list);
+
 
 void    strlen_tester(void);
 void    strcpy_tester(void);

@@ -20,7 +20,7 @@ AR			=	ar
 ARFLAG		=	rcs
 
 CC			=	gcc 
-CFLAG		=	-Wall -Wextra -Werror -g3 #-fsanitize=address,leak 
+CFLAG		=	-Wall -Wextra -Werror -g3 #-fsanitize=address,leak,undefined 
 
 
 #	==============================	INCLUDE	==============================	#

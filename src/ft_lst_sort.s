@@ -5,72 +5,55 @@ SECTION .text
 ; rdi: head ptr of list
 ; rsi: ptr to cmp func
 ft_list_sort:
-        ; test if head is NULL
-        test    rdi, rdi
-        jz      .end
-
-       ; test if *head is NULL
-        cmp    QWORD [rdi], QWORD 0x0
-        jz      .end
-
-        ; test if cmp is NULL
-        test    rsi, rsi
-        jz      .end
-
-        ; get *head in rbx for storing current pos in list
-        mov     rbx, [rdi] 
-
-        ; push    rbp
-        ; mov     rbp, rsp
-        ; save head and cmp
+        push    rbp
+        mov     rbp, rsp
+        push    r14
+        push    r15
         sub     rsp, 0x10
+
+        test    rdi, rdi                ; test if head is NULL
+        jz      .end
+        test    rsi, rsi                ; test if cmp is NULL
+        jz      .end
+
+        ; save head and cmp
         mov     [rbp - 0x8], rdi
         mov     [rbp - 0x10], rsi
-        mov     rax, rsi
-        mov     rax, QWORD [rbp - 0x10]
-        jmp     .isend
+
+        mov     r14, [rdi]               ; r14 = current
+        cmp     r14, QWORD 0x0           ; test if current == NULL
+        jz      .end
 
 .loop:
-        mov     rdi, [rbx]          ; mov current->data in rdi
-        mov     rsi, [rbx + 0x8]    ; mov current->next in rsi
-        mov     rsi, [rsi]          ; mov current->next->data in rsi
-        mov     rax, QWORD [rbp - 0x10]
-        push    rbx
-        call    rax        ; call cmp func
-        pop     rbx
+        ; while stop condition
+        mov     r15, [r14 + 0x8]          ; r15 = current->next
+        cmp     r15, QWORD 0x0           ; test if next == NULL
+        jz      .end
+
+        ; test if cmp(current->data, next->data) != 0
+        mov     rdi, [r14]           ; mov current->data in rdi
+        mov     rsi, [r15]           ; mov next->data in rsi
+        call    [rbp - 0x10]        ; call cmp func
         test    rax, rax            ; test if cmp return 0
-        jnz     .rec
+        jle     .adv
 
-.recout:
-        mov     rbx, [rbx + 0x8]    ; current = current->next
+        ; swap 
+        mov     r10, [r14]           ; r10 = current->data
+        mov     r11, [r15]           ; r11 = next->data
+        mov     [r14], r11           ; current->data = r11
+        mov     [r15], r10           ; next->data = r10
 
-.isend: 
-        cmp     QWORD [rbx + 0x8], QWORD 0x0
-        jne     .loop
+        mov     rdi, [rbp - 0x8]     ; reset head
+        mov     r15, [rdi]
 
-.rec:
-        ; swap current->data and current->next->data
-; rdi = rbx
-; rbx + 0x0 = [rbx + 0x8]
-; rbx + 0x8 = rdi
-        mov     rdi, [rbx]
-        mov     rbx, [rbx + 0x8]
-        mov     [rbx + 0x8], rdi
-
-
-        ; mov     rsi, [rbx + 0x8]
-        ; mov     rsi, [rsi]
-        ; mov     [rbx], rsi
-        ; mov     [rbx + 0x8], rdi
-
-        mov     rdi, [rbp - 0x8]
-        mov     rsi, [rbp - 0x10]
-        push    rbx
-        call    ft_list_sort
-        pop     rbx
-        jmp     .recout
+.adv:
+        ; advance 
+        mov     r14, r15
+        jmp     .loop
 
 .end:
         add     rsp, 0x10
+        pop     r15
+        pop     r14
         leave
         ret

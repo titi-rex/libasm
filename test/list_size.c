@@ -36,7 +36,7 @@ void    list_size_wrapper(int len)
 
 void    list_size_tester(void)
 {
-    printf("list_size: ");
+    printf("list_size:\t");
     list_size_wrapper(0);
     list_size_wrapper(1);
     list_size_wrapper(51);

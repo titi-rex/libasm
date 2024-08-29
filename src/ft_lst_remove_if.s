@@ -3,10 +3,7 @@ GLOBAL  ft_list_remove_if
 EXTERN  free
 
 SECTION .text
-; 0x08 = 8
-; 0x10 = 16
-; 0x18 = 24
-; 0x20 = 32
+
 ft_list_remove_if:
         push    rbp
         mov     rbp, rsp
@@ -33,7 +30,7 @@ ft_list_remove_if:
         jnz     .loop_node              ; else we found head -> go to next loop
 
         ; extract &node to delete and reform list
-        mov     r15, r12                ; save & of node to delete
+        mov     r15, r12                ; r15 = & of node to delete
         mov     r12, [r12 + 0x8]        ; head = head->next
         mov     rcx, [rbp - 0x8]        ; get begin_list
         mov     [rcx], r12              ; *begin_list = head
@@ -76,8 +73,6 @@ ft_list_remove_if:
 
 
 .end:
-        mov     r14, [rbp - 0x8]
-        mov     r15, [r14]
         add     rsp, 0x20
         pop     r13
         pop     r12

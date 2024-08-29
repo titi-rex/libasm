@@ -9,7 +9,7 @@ void _strcmp_wrapper(const char * a, const char * b)
 
 void    strcmp_tester(void)
 {
-    printf("strcmp: ");
+    printf("strcmp:\t");
     _strcmp_wrapper("hehe", "455heheeeeee");
     _strcmp_wrapper("sasd", "");
     _strcmp_wrapper("z", "");

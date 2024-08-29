@@ -85,15 +85,36 @@ void    atoi_base_wrapper(char* str, char* base)
 
 void	atoi_base_tester(void)
 {
-    printf("atoi_base: ");
-    atoi_base_wrapper("0000", "012345679");
+    printf("atoi_base:\t");
+    atoi_base_wrapper("1", "001");
+    atoi_base_wrapper("1", "011");
+	char s8[] = {'0', '1', 8, 0}; 
+    char s14[] = {'0', '1', 14, 0}; 
+    char * gap = (char*)"0123450";
+
+    atoi_base_wrapper("1", s8);
+    atoi_base_wrapper("1", s14);
+    atoi_base_wrapper("1", gap);
+
+    atoi_base_wrapper("+89", "0123456789");
+    atoi_base_wrapper("-1", "0123456789");
+    atoi_base_wrapper("-24", "0123456789abcdef");
+    atoi_base_wrapper("--1", "0123456789abcdef");
+    atoi_base_wrapper("-+--1", "0123456789abcdef");
+
+    atoi_base_wrapper("0000", "++012345679");
+    atoi_base_wrapper("0000", "012+3456-7 9");
+    atoi_base_wrapper("0000", "  0123+4 5679 ");
+    atoi_base_wrapper("0000", "  +-0123+4 5679 ");
+    atoi_base_wrapper("0000", "  5+-0123+4 5679 ");
+    atoi_base_wrapper("0000", "0123456789");
     atoi_base_wrapper("010101", "01");
     atoi_base_wrapper("10000", "01");
-    atoi_base_wrapper("684", "012345679");
-    atoi_base_wrapper("-89", "012345679");
-    atoi_base_wrapper("-5687421", "012345679");
-    atoi_base_wrapper("--968", "012345679");
-    atoi_base_wrapper("--++--+-+968", "012345679");
+    atoi_base_wrapper("684", "0123456789");
+    atoi_base_wrapper("-89", "0123456789");
+    atoi_base_wrapper("-5687421", "0123456789");
+    atoi_base_wrapper("--968", "0123456789");
+    atoi_base_wrapper("--++--+-+968", "0123456789");
     atoi_base_wrapper(" +-+----nope2kldj9f", "56sw");
     atoi_base_wrapper("oney", "poneyvif");
     atoi_base_wrapper("-vf", "poneyvif");

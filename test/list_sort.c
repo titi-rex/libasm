@@ -60,7 +60,7 @@ void    list_sort_tester(void)
     t_list      *lst;
     uint64_t    len;
 
-    printf("list_sort: ");
+    printf("list_sort:\t");
     (void)len;
 
     // test empty list

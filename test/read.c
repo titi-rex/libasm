@@ -37,7 +37,7 @@ void _read_wrapper(char * pathname, size_t len)
 
 void    read_tester(void)
 {
-    printf("read: ");
+    printf("read:\t");
     _read_wrapper("Makefile", 10);
     _read_wrapper("Makefile", -10);
     _read_wrapper("Makefile", 51);

@@ -51,7 +51,7 @@ OBJ_BONUS		=	${addprefix ${DIR_OBJ}, ${LST_OBJ_BONUS}}
 
 #	==============================	TEST	==============================	#
 DIR_TEST		=	test/
-LST_TEST_SRC	=	main.c utils.c strlen.c strcpy.c strcmp.c strdup.c write.c read.c atoi_base.c lst_push_front.c lst_size.c lst_sort.c lst_remove_if.c 
+LST_TEST_SRC	=	main.c utils.c strlen.c strcpy.c strcmp.c strdup.c write.c read.c atoi_base.c list_push_front.c list_size.c list_sort.c list_remove_if.c 
 TEST_SRC		=	${addprefix ${DIR_TEST}, ${LST_TEST_SRC}}
 
 

@@ -23,7 +23,7 @@ void    list_push_front_wrapper(t_list** list, void* data, t_list* exp_next, lon
 
 void    list_push_front_tester(void)
 {
-    printf("list_push_front: ");
+    printf("list_push_front:\t");
     t_list* list = NULL;
     t_list  *tmp = malloc(sizeof(t_list));
     long int    exp_msize = malloc_usable_size(tmp);

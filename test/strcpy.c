@@ -18,7 +18,7 @@ void _strcpy_wrapper(const char * string)
 
 void    strcpy_tester(void)
 {
-    printf("strcpy: ");
+    printf("strcpy:\t");
     _strcpy_wrapper("hehe");
     _strcpy_wrapper("hehslkfj sljfojes;ofh sf6s84efs4efsf jse9w73 os;l9es9rf9fru3u8sl38ursl83rus9w3l8ry sl3yr7sylwsi3rysiyr 3i7yslry3iyurslie");
     _strcpy_wrapper("");

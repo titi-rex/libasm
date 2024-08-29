@@ -37,7 +37,7 @@ void _write_wrapper(int fds[2], const char * string, size_t len)
 
 void    write_tester(void)
 {
-    printf("write: ");
+    printf("write:\t");
     int     fds[2];
     int     badfds[2];
     pipe(fds);

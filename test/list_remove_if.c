@@ -99,7 +99,7 @@ void    list_remove_if_wrapper(void* data_ref, int (*cmp)(), void (*free_fct)(vo
 
 void    list_remove_if_tester(void)
 {
-    printf("list_remove_if: ");
+    printf("list_remove_if:\t");
     list_remove_if_wrapper((void*)51, _cmp_equ, _fake_free, 0);
     list_remove_if_wrapper((void*)7, _cmp_equ, _fake_free, 1);
     list_remove_if_wrapper((void*)1, _cmp_mod, _fake_free, 21);

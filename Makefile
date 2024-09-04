@@ -28,7 +28,6 @@ IFLAG		=	-I ${DIR_INC}
 
 
 #	==============================	SRC	==============================	#
-BASE		=	strlen strcpy strcmp strdup write read 
 DIR_SRC		=	src/
 LST_SRC		=	ft_strlen.s ft_strcpy.s ft_strcmp.s ft_strdup.s ft_write.s ft_read.s
 SRC			=	${addprefix ${DIR_SRC}, ${LST_SRC}}
@@ -61,7 +60,6 @@ clean:
 fclean: clean
 	@rm -f ${NAME}
 	@rm -f ${NAME_BONUS}
-	@rm -f ${TEST_EXE}
 	@echo "FClean"
 
 re: fclean all

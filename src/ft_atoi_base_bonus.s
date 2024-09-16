@@ -58,7 +58,7 @@ ft_atoi_base:
         ; skip space (whitespace(3))
 .space.loop:
         mov     cl, [rdi]
-        test    cl, cl                  ; if *str == '\0
+        test    cl, cl                  ; if *str == '\0'
         jz      .end                    ; go error
         cmp     cl, 0x20                ; if *str > ' '
         jg      .sign.loop              ; go sign

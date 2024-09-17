@@ -12,7 +12,7 @@ NAME_BONUS	=	libasm_bonus.a
 
 #	==============================	CMP	==============================	#
 ASM			=	nasm
-ASMFLAG		=	-w+x -f elf64 
+ASMFLAG		=	-w+x -f elf64 -gstabs
 DEPFLAG		=	-MD $@.dep
 
 AR			=	ar
@@ -64,6 +64,8 @@ fclean: clean
 
 re: fclean all
 
+test:  bonus
+	gcc -g3 main.c ${NAME}
 
 #	==============================	COMPILATION	==============================	#
 ${NAME}: ${DIR_OBJ} ${OBJ}

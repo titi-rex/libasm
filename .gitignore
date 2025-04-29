@@ -53,7 +53,5 @@ dkms.conf
 
 #
 *.dep
-*tester
-*Tester
 doc
 .vscode

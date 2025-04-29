@@ -40,7 +40,6 @@ ft_list_remove_if:
         call    [rbp - 0x20]            ; call free_fct to destroy node data
         mov     rdi, r15
         call    free WRT ..plt          ; call free to destroy node
-
         jmp     .loop_parent
 
                 ; from now head is called parent

@@ -55,17 +55,14 @@ all: ${NAME}
 
 clean:
 	@rm -rf ${DIR_OBJ}
-	@echo "Clean"
+	@echo "clean"
 
 fclean: clean
 	@rm -f ${NAME}
 	@rm -f ${NAME_BONUS}
-	@echo "FClean"
+	@echo "fclean"
 
 re: fclean all
-
-test:  bonus
-	gcc -g3 main.c ${NAME}
 
 #	==============================	COMPILATION	==============================	#
 ${NAME}: ${DIR_OBJ} ${OBJ}

@@ -60,12 +60,14 @@ ft_atoi_base:
         mov     cl, [rdi]
         test    cl, cl                  ; if *str == '\0'
         jz      .end                    ; go error
-        cmp     cl, 0x20                ; if *str > ' '
-        jg      .sign.loop              ; go sign
-        cmp     cl, 0x9                 ; if *str < 9
-        jl      .end                    ; go error
-        cmp     cl, 0xd                 ; if *str > 13
-        jg      .end                    ; go error
+        cmp     cl, 0x20                ; compare *str and ' '
+        je      .space.inc              ; if *str == ' 'go space.inc (loop over space)
+        jg      .sign.loop              ; if *str> ' ' go sign (no more whitespace(3) to skip)
+        cmp     cl, 0x9                 ; compare *str and 9 ('\t')
+        jl      .end                    ; if *str < 9 go error 
+        cmp     cl, 0xd                 ; compare *str and 13 ('\r')
+        jg      .end                    ; if *str > 13 go error
+.space.inc:
         inc     rdi
         jmp     .space.loop
 
@@ -77,7 +79,7 @@ ft_atoi_base:
 .sign.inc:
         inc     rdi
         mov     cl, [rdi]
-        jmp     .sign.loop
+;        jmp     .sign.loop
 
 .sign.loop:
         cmp     cl, 0x2b                ; if *str == '+'

@@ -14,5 +14,4 @@ ft_strcpy:
         mov     [rdi], dl
         cmp     BYTE [rsi], 0
         jnz     .loop
-
         ret
